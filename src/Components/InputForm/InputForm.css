@@ -1,0 +1,53 @@
+:root{
+  --gold : rgb(237, 167, 32);
+  --gold70 : rgba(237, 169, 32, 0.7);
+  --yellowLight : #ffb517;
+}
+
+.btnGold{
+  font-family: 'Salsa', cursive;  
+  font-size: 16px; 
+  color:var(--gold);
+  text-decoration: none;
+  border: 1px solid black;
+  background-color: #202020;  
+  text-align: center;
+  padding: 10px;  
+  cursor: pointer;
+  margin-left: 20px; 
+  transition: 0.4s; 
+}
+.btnGold:active {  
+  background-color: #101010;  
+  padding: 12px;
+}
+.btnGold:hover {
+  color:#e8eaed;
+  border: 1px solid #9aa0a6;    
+  font-size: 18px; 
+}
+.inputText{
+  font-family: 'Salsa', cursive;
+  font-size: 14px;  
+  margin: 2px;
+  padding: 10px 20px;  
+  text-align: center;  
+  width: 5%;
+  margin-top: 20px;      
+}
+.span{
+  font-family: 'Salsa', cursive;
+  margin-left: 5px;  
+  margin-right: 5px;
+  color:whitesmoke;
+}
+.dollar{
+  font-family: 'Salsa', cursive;
+  font-size: 25px;
+  color:whitesmoke;
+}
+.prompt{      
+  color: var(--yellowLight);
+  font-size: 20px;
+  padding: 10px 20px;   
+}
