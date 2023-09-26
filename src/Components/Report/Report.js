@@ -18,23 +18,23 @@ class Report extends React.Component{
   render(){
     return(
     <table className='report'>
-      <thead>
-      <tr>
-      <th className='th'>Balance</th>
-      <th className='th'>Bill</th>      
-      <th className='th'>Year</th>
-      <th className='th'>Month</th>
-      <th className='th'>Day</th>
+      <thead key={"thead"}>
+      <tr key={"trHead"}>
+      <th className='th' key={"Balance"}>Balance</th>
+      <th className='th' key={"Bill"}>Bill</th>      
+      <th className='th' key={"Year"}>Year</th>
+      <th className='th' key={"Month"}>Month</th>
+      <th className='th' key={"Day"}>Day</th>
       </tr>
       </thead>      
       {this.state.accounting.map(accounting => 
-        <tbody>
-          <tr className='tr'>
-            <td className='td'>{accounting.balance}</td>
-            <td className='td'>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</td>          
-            <td className='td'>{accounting.y}</td>
-            <td className='td'>{accounting.m}</td>
-            <td className='td'>{accounting.d}</td>        
+        <tbody key={accounting.id+"tBody"}>
+          <tr className='tr' key={accounting.id+"trBody"}>
+            <td className='td' key={accounting.id+"balance"}>{accounting.balance}</td>
+            <td className='td' key={accounting.id+"isIncome"}>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</td>          
+            <td className='td' key={accounting.id+"y"}>{accounting.y}</td>
+            <td className='td' key={accounting.id+"m"}>{accounting.m}</td>
+            <td className='td' key={accounting.id+"d"}>{accounting.d}</td>        
           </tr>
         </tbody>
       )}      
