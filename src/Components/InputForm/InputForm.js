@@ -1,5 +1,5 @@
 import React from 'react';
-import './InputForm.css';
+// import './InputForm.css';
 import Post from '../Post/Post.js';
 import axios from 'axios';
 
@@ -66,21 +66,48 @@ class Balance extends React.Component{
 
   render(){
     return(
-      <form style={{padding : "20px"}} onSubmit={(e)=>{this.handleSubmit(e)}}>        
-        <input className='inputText' type='text' placeholder='Year' value={this.state.yDate} onChange={(e)=>this.yearChange(e)}></input>
-        <input className='inputText' type='text' placeholder='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)}></input>
-        <input className='inputText' type='text' placeholder='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)}></input>
-        <br></br>
-        <input className='inputText' style={{width : "15%"}} type='number' placeholder='Bill' value={this.state.bill} onChange={(e)=>this.billChange(e)}></input>
-        <span className='dollar'>$</span> 
-        <input type="checkbox" name="checkboxIncome" checked={this.state.isIncome} onChange={(e)=>{this.checkIncome(e)}}></input>
-        <span className='span'>Income</span>
-        <button type='submit' className='btnGold'>Submit</button>
-        <br></br><span className='span'>My Current Balance : </span>
-        <input className='inputText' style={{width : "8%"}} type='number' value={this.state.balance} readOnly></input>
-        <span className='dollar'>$</span>
-        <p className='prompt'>{this.state.error}</p>        
-      </form>
+      <div className='container'>
+        <form onSubmit={(e)=>{this.handleSubmit(e)}}>
+          <div class='input-group'>
+            <div class='form-floating'>
+              <input className='form-control' id='year' type='text' placeholder='Year' value={this.state.yDate} onChange={(e)=>this.yearChange(e)}></input>
+              <label for='year'>Year</label>
+            </div>
+            <div class='form-floating'>
+              <input className='form-control' id='month' type='text' placeholder='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)}></input>
+              <label for='month'>Month</label>
+            </div>
+            <div class='form-floating'>
+              <input className='form-control' id='day' type='text' placeholder='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)}></input>
+              <label for='day'>Day</label>
+            </div>
+          </div>
+          <br></br>
+          <div class='form-check-inline'>
+            <div class='input-group'>
+              <div className='input-group-text'>$</div>
+              <div class='form-floating'>
+                <input className='form-control' id='bill' type='number' placeholder='Bill' value={this.state.bill} onChange={(e)=>this.billChange(e)}></input>
+                <label for='bill'>Bill</label>
+              </div>
+            </div>
+          </div>
+          <div class='form-check-inline'>
+            <div className='form-check form-switch'>
+              <input className='form-check-input' type="checkbox" id='checkboxIncome' name="checkboxIncome" checked={this.state.isIncome} onChange={(e)=>{this.checkIncome(e)}}></input>
+              <label for='checkboxIncome' className='from-check-label'>Income</label>
+            </div>
+          </div>
+          <button type='submit' className='btn btn-primary'>Submit</button>
+          <br></br><br></br>          
+          <div class='input-group'>
+            <div className='input-group-text'>My Current Balance :</div>
+            <div className='input-group-text'>$</div>
+            <input className='form-control' type='number' value={this.state.balance} readOnly></input>            
+          </div>
+          <p className='prompt'>{this.state.error}</p>        
+        </form>
+      </div>
     );
   }
 };
