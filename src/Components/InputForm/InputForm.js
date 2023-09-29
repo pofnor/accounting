@@ -1,5 +1,5 @@
 import React from 'react';
-// import './InputForm.css';
+import './InputForm.css';
 import Post from '../Post/Post.js';
 import axios from 'axios';
 
@@ -68,39 +68,40 @@ class Balance extends React.Component{
     return(
       <div className='container'>
         <form onSubmit={(e)=>{this.handleSubmit(e)}}>
-          <div class='input-group'>
-            <div class='form-floating'>
+          <div className='input-group pt-5'>
+            <div className='form-floating'>
               <input className='form-control' id='year' type='text' placeholder='Year' value={this.state.yDate} onChange={(e)=>this.yearChange(e)}></input>
-              <label for='year'>Year</label>
+              <label htmlFor='year'>Year</label>
             </div>
-            <div class='form-floating'>
+            <div className='form-floating'>
               <input className='form-control' id='month' type='text' placeholder='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)}></input>
-              <label for='month'>Month</label>
+              <label htmlFor='month'>Month</label>
             </div>
-            <div class='form-floating'>
+            <div className='form-floating'>
               <input className='form-control' id='day' type='text' placeholder='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)}></input>
-              <label for='day'>Day</label>
+              <label htmlFor='day'>Day</label>
             </div>
           </div>
           <br></br>
-          <div class='form-check-inline'>
-            <div class='input-group'>
+          <div className='form-check-inline'>
+            <div className='input-group'>
               <div className='input-group-text'>$</div>
-              <div class='form-floating'>
+              <div className='form-floating'>
                 <input className='form-control' id='bill' type='number' placeholder='Bill' value={this.state.bill} onChange={(e)=>this.billChange(e)}></input>
-                <label for='bill'>Bill</label>
+                <label htmlFor='bill'>Bill</label>
               </div>
             </div>
           </div>
-          <div class='form-check-inline'>
+          <div className='form-check-inline'>
             <div className='form-check form-switch'>
               <input className='form-check-input' type="checkbox" id='checkboxIncome' name="checkboxIncome" checked={this.state.isIncome} onChange={(e)=>{this.checkIncome(e)}}></input>
-              <label for='checkboxIncome' className='from-check-label'>Income</label>
+              <label htmlFor='checkboxIncome'  style={{color:"whitesmoke"}} className='from-check-label'>Income</label>
             </div>
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <br></br><br></br>
+          <button type='submit' className='btn btn-primary btn-lg'>Submit</button>
           <br></br><br></br>          
-          <div class='input-group'>
+          <div className='input-group'>
             <div className='input-group-text'>My Current Balance :</div>
             <div className='input-group-text'>$</div>
             <input className='form-control' type='number' value={this.state.balance} readOnly></input>            
