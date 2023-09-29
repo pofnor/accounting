@@ -9,7 +9,7 @@ const App = () => {
   <div className='bills-container'>
     <InputForm />    
     <Loader isShow={false}/>    
-    <hr></hr>
+    <hr style={{color:"whitesmoke"}}></hr>
     <br></br>
     <Report />
   </div>
