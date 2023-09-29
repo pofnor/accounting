@@ -2,6 +2,16 @@ import React from 'react';
 import './InputForm.css';
 import Post from '../Post/Post.js';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import SaveIcon from '@mui/icons-material/Save';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 const api = axios.create({
   baseURL:'http://localhost:3001/accounting'
@@ -66,21 +76,36 @@ class Balance extends React.Component{
 
   render(){
     return(
-      <form style={{padding : "20px"}} onSubmit={(e)=>{this.handleSubmit(e)}}>        
-        <input className='inputText' type='text' placeholder='Year' value={this.state.yDate} onChange={(e)=>this.yearChange(e)}></input>
-        <input className='inputText' type='text' placeholder='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)}></input>
-        <input className='inputText' type='text' placeholder='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)}></input>
-        <br></br>
-        <input className='inputText' style={{width : "15%"}} type='number' placeholder='Bill' value={this.state.bill} onChange={(e)=>this.billChange(e)}></input>
-        <span className='dollar'>$</span> 
-        <input type="checkbox" name="checkboxIncome" checked={this.state.isIncome} onChange={(e)=>{this.checkIncome(e)}}></input>
-        <span className='span'>Income</span>
-        <button type='submit' className='btnGold'>Submit</button>
-        <br></br><span className='span'>My Current Balance : </span>
-        <input className='inputText' style={{width : "8%"}} type='number' value={this.state.balance} readOnly></input>
-        <span className='dollar'>$</span>
-        <p className='prompt'>{this.state.error}</p>        
-      </form>
+      <Box
+      sx={{
+        color:'whitesmoke'         
+      }}
+      >
+      <form style={{padding : "20px"}} autoComplete="off" onSubmit={(e)=>{this.handleSubmit(e)}}>
+        <TextField id="outlined-basic" sx={{ input: { color: 'whitesmoke' } }}label="Year" variant="outlined" value={this.state.yDate} onChange={(e)=>this.yearChange(e)} />
+        <TextField id="outlined-basic" sx={{marginLeft:"5px",color:"whitesmoke"}} label='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)} />
+        <TextField id="outlined-basic" sx={{marginLeft:"5px"}} label='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)} />
+        <br></br><br></br>
+        <FormControl fullWidth sx={{color:"whitesmoke"}}>
+          <InputLabel htmlFor="outlined-adornment-amount">Bill</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-amount"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}            
+            label="Bill"
+            sx={{color:"whitesmoke"}}
+            value={this.state.bill} 
+            onChange={(e)=>this.billChange(e)}
+          />
+        </FormControl>        
+        <FormControlLabel label="Income" labelPlacement="end" sx={{marginLeft:"5px"}} control={<Checkbox />} checked={this.state.isIncome} onChange={(e)=>{this.checkIncome(e)}} />            
+        <br></br><br></br>
+        <Button variant="contained" startIcon={<SaveIcon />} type='submit'>Submit</Button>        
+        <br></br><br></br>
+        <TextField id="outlined-basic" sx={{ input: { color: 'whitesmoke' } }} label='My Current Balance : ' type='number' value={this.state.balance} readOnly />        
+        
+        <p className='prompt'>{this.state.error}</p>           
+      </form>      
+      </Box>      
     );
   }
 };

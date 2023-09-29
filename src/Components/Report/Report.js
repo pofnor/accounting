@@ -1,6 +1,13 @@
 import axios from 'axios';
 import React from 'react';
-import './Report.css';
+// import './Report.css';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+
 const api = axios.create({
   baseURL:'http://localhost:3001/accounting'
 })
@@ -17,16 +24,17 @@ class Report extends React.Component{
   }
   render(){
     return(
-    <table className='report'>
-      <thead key={"thead"}>
-      <tr key={"trHead"}>
+    <TableContainer>
+      <Table>
+      <TableHead>
+      <TableRow key={"trHead"}>
       <th className='th' key={"Balance"}>Balance</th>
       <th className='th' key={"Bill"}>Bill</th>      
       <th className='th' key={"Year"}>Year</th>
       <th className='th' key={"Month"}>Month</th>
       <th className='th' key={"Day"}>Day</th>
-      </tr>
-      </thead>      
+      </TableRow>
+      </TableHead>      
       {this.state.accounting.map(accounting => 
         <tbody key={accounting.id+"tBody"}>
           <tr className='tr' key={accounting.id+"trBody"}>
@@ -37,8 +45,9 @@ class Report extends React.Component{
             <td className='td' key={accounting.id+"d"}>{accounting.d}</td>        
           </tr>
         </tbody>
-      )}      
-    </table>
+      )}
+      </Table>      
+    </TableContainer>
     )
   }
 }
