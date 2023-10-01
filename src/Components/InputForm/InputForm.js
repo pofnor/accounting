@@ -76,13 +76,9 @@ class Balance extends React.Component{
 
   render(){
     return(
-      <Box
-      sx={{
-        color:'whitesmoke'         
-      }}
-      >
+      <Box>
       <form style={{padding : "20px"}} autoComplete="off" onSubmit={(e)=>{this.handleSubmit(e)}}>
-        <TextField id="outlined-basic" sx={{ input: { color: 'whitesmoke' } }}label="Year" variant="outlined" value={this.state.yDate} onChange={(e)=>this.yearChange(e)} />
+        <TextField id="outlined-basic" label="Year" variant="outlined" value={this.state.yDate} onChange={(e)=>this.yearChange(e)} />
         <TextField id="outlined-basic" sx={{marginLeft:"5px",color:"whitesmoke"}} label='Month'value={this.state.mDate} onChange={(e)=>this.monthChange(e)} />
         <TextField id="outlined-basic" sx={{marginLeft:"5px"}} label='Day'  value={this.state.dDate} onChange={(e)=>this.dayChange(e)} />
         <br></br><br></br>
@@ -92,7 +88,7 @@ class Balance extends React.Component{
             id="outlined-adornment-amount"
             startAdornment={<InputAdornment position="start">$</InputAdornment>}            
             label="Bill"
-            sx={{color:"whitesmoke"}}
+            sx={{color:"blue"}}
             value={this.state.bill} 
             onChange={(e)=>this.billChange(e)}
           />
@@ -101,8 +97,7 @@ class Balance extends React.Component{
         <br></br><br></br>
         <Button variant="contained" startIcon={<SaveIcon />} type='submit'>Submit</Button>        
         <br></br><br></br>
-        <TextField id="outlined-basic" sx={{ input: { color: 'whitesmoke' } }} label='My Current Balance : ' type='number' value={this.state.balance} readOnly />        
-        
+        <TextField id="outlined-basic" label='My Current Balance : ' type='number' value={this.state.balance} readOnly />        
         <p className='prompt'>{this.state.error}</p>           
       </form>      
       </Box>      

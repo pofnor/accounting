@@ -24,27 +24,29 @@ class Report extends React.Component{
   }
   render(){
     return(
-    <TableContainer>
+    <TableContainer
+     sx={{padding:"20px"}}
+    >
       <Table>
-      <TableHead>
-      <TableRow key={"trHead"}>
-      <th className='th' key={"Balance"}>Balance</th>
-      <th className='th' key={"Bill"}>Bill</th>      
-      <th className='th' key={"Year"}>Year</th>
-      <th className='th' key={"Month"}>Month</th>
-      <th className='th' key={"Day"}>Day</th>
-      </TableRow>
-      </TableHead>      
+        <TableHead>
+          <TableRow key={"trHead"}>
+            <TableCell key={"Balance"}>Balance</TableCell>
+            <TableCell key={"Bill"}>Bill</TableCell>      
+            <TableCell key={"Year"}>Year</TableCell>
+            <TableCell key={"Month"}>Month</TableCell>
+            <TableCell key={"Day"}>Day</TableCell>
+            </TableRow>
+        </TableHead>      
       {this.state.accounting.map(accounting => 
-        <tbody key={accounting.id+"tBody"}>
-          <tr className='tr' key={accounting.id+"trBody"}>
-            <td className='td' key={accounting.id+"balance"}>{accounting.balance}</td>
-            <td className='td' key={accounting.id+"isIncome"}>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</td>          
-            <td className='td' key={accounting.id+"y"}>{accounting.y}</td>
-            <td className='td' key={accounting.id+"m"}>{accounting.m}</td>
-            <td className='td' key={accounting.id+"d"}>{accounting.d}</td>        
-          </tr>
-        </tbody>
+        <TableBody key={accounting.id+"tBody"}>
+          <TableRow key={accounting.id+"trBody"}>
+            <TableCell key={accounting.id+"balance"}>{accounting.balance}</TableCell>
+            <TableCell key={accounting.id+"isIncome"}>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</TableCell>          
+            <TableCell key={accounting.id+"y"}>{accounting.y}</TableCell>
+            <TableCell key={accounting.id+"m"}>{accounting.m}</TableCell>
+            <TableCell key={accounting.id+"d"}>{accounting.d}</TableCell>        
+          </TableRow>
+        </TableBody>
       )}
       </Table>      
     </TableContainer>
