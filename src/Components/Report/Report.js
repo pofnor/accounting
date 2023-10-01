@@ -30,21 +30,21 @@ class Report extends React.Component{
       <Table>
         <TableHead>
           <TableRow key={"trHead"}>
-            <TableCell key={"Balance"}>Balance</TableCell>
-            <TableCell key={"Bill"}>Bill</TableCell>      
-            <TableCell key={"Year"}>Year</TableCell>
-            <TableCell key={"Month"}>Month</TableCell>
-            <TableCell key={"Day"}>Day</TableCell>
+            <TableCell>Balance</TableCell>
+            <TableCell>Bill</TableCell>      
+            <TableCell>Year</TableCell>
+            <TableCell>Month</TableCell>
+            <TableCell>Day</TableCell>
             </TableRow>
         </TableHead>      
       {this.state.accounting.map(accounting => 
         <TableBody key={accounting.id+"tBody"}>
-          <TableRow key={accounting.id+"trBody"}>
-            <TableCell key={accounting.id+"balance"}>{accounting.balance}</TableCell>
-            <TableCell key={accounting.id+"isIncome"}>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</TableCell>          
-            <TableCell key={accounting.id+"y"}>{accounting.y}</TableCell>
-            <TableCell key={accounting.id+"m"}>{accounting.m}</TableCell>
-            <TableCell key={accounting.id+"d"}>{accounting.d}</TableCell>        
+          <TableRow>
+            <TableCell>{accounting.balance}</TableCell>
+            <TableCell>{accounting.isIncome==="true" ? "+" + accounting.bill : "-" + accounting.bill}</TableCell>          
+            <TableCell>{accounting.y}</TableCell>
+            <TableCell>{accounting.m}</TableCell>
+            <TableCell>{accounting.d}</TableCell>        
           </TableRow>
         </TableBody>
       )}
